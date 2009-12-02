@@ -1,0 +1,35 @@
+This will happily compile using mingw32.
+
+1) Install gcc, binutils, w32-runtime and msys.
+2) make proc_affinity
+
+To use it, type ./proc_affinity (name of process) (affinity)
+
+Affinity takes the form of a hexadecimal (or decimal) number
+that denotes which processors to enable or disable.  For
+instance:
+
+Affinity | Hexadecimal | Binary
+---------+-------------+--------
+    1    |     0x1     |  0001
+    2    |     0x2     |  0010
+    3    |     0x3     |  0011
+    4    |     0x4     |  0100
+    5    |     0x5     |  0101
+    6    |     0x6     |  0110
+    7    |     0x7     |  0111
+    8    |     0x8     |  1000
+    9    |     0x9     |  1001
+   10    |     0xA     |  1010
+   11    |     0xB     |  1011
+   12    |     0xC     |  1100
+   13    |     0xD     |  1101
+   14    |     0xE     |  1110
+   15    |     0xF     |  1111
+... and so on
+
+Each binary digit refers to a processor or core.  With this in
+mind, 1 turns on the first core/processor and turns all others off,
+2 turns on the second core/processor and turns all others off, while
+3 turns on the first two cores/processors.  This continues until you
+get to 15, which enables four cores.
